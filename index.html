@@ -36,6 +36,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 15px;
+      position: relative; /* Added for positioning image */
     }
 
     header h1 {
@@ -100,6 +101,16 @@
       color: #777;
     }
 
+    .profile-photo {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 50px; /* Adjust the size as needed */
+      height: 50px; /* Adjust the size as needed */
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -118,12 +129,13 @@
         <div class="small">San Ramon, CA </div>
         <div class="small"><a href="mailto:vfautomation@gmail.com">vfautomation@gmail.com</a></div>
       </div>
+      <img src="path-to-your-photo.jpg" alt="Your Photo" class="profile-photo"> <!-- Added image element -->
     </header>
 
     <section class="section">
       <div class="section-title">Professional Summary</div>
       <p>
-        Senior software engineering leader with extensive experience designing and delivering enterprise-scale applications in regulated and data-intensive environments. Proven expertise in application architecture, data platforms, and modernization initiatives. Strong collaborator with business, security, and infrastructure teams; known for reliability, clarity, and results.
+        Senior software engineering leader with extensive experience designing and delivering enterprise-scale applications in regulated and data-intensive environments. Proven expertise in appli[...]
 
 
       </p>
