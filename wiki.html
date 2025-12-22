@@ -15,6 +15,19 @@
     .section { margin-top:18px; }
     .section-title { font-weight:600; font-size:1.05rem; margin-bottom:8px; color:#333; }
     .small { font-size:0.9rem; color:#666; }
+
+    .music-controls { margin-top: 10px; }
+    .music-button {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #dde5ff;
+      background: #f0f4ff;
+      color: #0077cc;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .music-button:hover { background: #e2ebff; }
   </style>
 </head>
 <body>
@@ -55,5 +68,28 @@
       <p class="small">Add project notes, commands, or short HOWTOs here.</p>
     </section>
   </div>
+
+  <audio id="bg-music" src="videos/Video1.mp4" loop></audio>
+
+  <script>
+    (function () {
+      var audio = document.getElementById('bg-music');
+      var button = document.getElementById('music-toggle');
+      if (!audio || !button) return;
+
+      button.addEventListener('click', function () {
+        if (audio.paused) {
+          audio.play().then(function () {
+            button.textContent = 'Pause Music';
+          }).catch(function () {
+            button.textContent = 'Play Music';
+          });
+        } else {
+          audio.pause();
+          button.textContent = 'Play Music';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

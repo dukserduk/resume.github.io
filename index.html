@@ -129,9 +129,22 @@
       }
     }
 
-    /* Hidden background audio */
-    #bg-music {
-      display: none;
+    .music-controls {
+      margin-top: 10px;
+    }
+
+    .music-button {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #dde5ff;
+      background: #f0f4ff;
+      color: #0077cc;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .music-button:hover {
+      background: #e2ebff;
     }
   </style>
 </head>
@@ -145,6 +158,9 @@
       <div>
         <div class="small">San Ramon, CA </div>
         <div class="small"><a href="mailto:vfautomation@gmail.com">vfautomation@gmail.com</a></div>
+        <div class="music-controls">
+          <button id="music-toggle" class="music-button" type="button">Play Music</button>
+        </div>
       </div>
       <div>
         <a href="Photos/VFphoto.jpg" target="_blank" rel="noopener noreferrer" class="profile-photo-link">
@@ -157,8 +173,10 @@
     <section class="section">
       <div class="section-title">Professional Summary</div>
       <p>
-        Principal Application Developer with deep experience in enterprise-scale application development, Azure DevOps administration, and CI/CD automation. Proven expertise in YAML-based pipeline creation, automated testing (unit, integration, data verification, and UI), and delivering reliable, high-quality systems in data-driven and regulated environments. Recognized for solving complex technical challenges, improving software quality, mentoring teams, and building scalable solutions that deliver measurable business value.
-
+        Principal Application Developer with deep experience in enterprise-scale application development, Azure DevOps administration, and CI/CD automation. 
+        Proven expertise in YAML-based pipeline creation, automated testing (unit, integration, data verification, and UI), 
+        and delivering reliable, high-quality systems in data-driven and regulated environments. Recognized for solving complex technical challenges, 
+        improving software quality, mentoring teams, and building scalable solutions that deliver measurable business value.
       </p>
     </section>
 
@@ -184,11 +202,32 @@
       </p>
     </section>
     <section class="section">
-      <e class="small">* These webpages created by using MS Code,CoPilot and Git</e>
+      <e class="small">* These webpages created by using MS Code, CoPilot and Git tools.</e>
     </section>
   </div>
 
-  <!-- Background music using existing video file; may require user interaction in some browsers -->
-  <audio id="bg-music" src="videos/Video1.mp4" autoplay loop></audio>
+  <!-- Background music (user-controlled for better browser compatibility) -->
+  <audio id="bg-music" src="videos/Video1.mp4" loop></audio>
+
+  <script>
+    (function () {
+      var audio = document.getElementById('bg-music');
+      var button = document.getElementById('music-toggle');
+      if (!audio || !button) return;
+
+      button.addEventListener('click', function () {
+        if (audio.paused) {
+          audio.play().then(function () {
+            button.textContent = 'Pause Music';
+          }).catch(function () {
+            button.textContent = 'Play Music';
+          });
+        } else {
+          audio.pause();
+          button.textContent = 'Play Music';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

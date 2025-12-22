@@ -31,6 +31,10 @@
     @media(max-width:900px){.lightbox-prev{left:8px}.lightbox-next{right:8px}}
     body.lightbox-open{overflow:hidden}
     @media(max-width:768px){.photos-grid{grid-template-columns:repeat(2,1fr)}}
+
+    .music-controls{margin-top:10px}
+    .music-button{padding:6px 12px;border-radius:999px;border:1px solid #dde5ff;background:#f0f4ff;color:#0077cc;font-size:.9rem;cursor:pointer}
+    .music-button:hover{background:#e2ebff}
   </style>
 </head>
 <body>
@@ -47,6 +51,9 @@
           <li><a href="wiki.html">Wiki</a></li>
         </ul>
       </nav>
+      <div class="music-controls">
+        <button id="music-toggle" class="music-button" type="button">Play Music</button>
+      </div>
     </header>
 
     <section class="section">
@@ -92,6 +99,8 @@
       <button class="lightbox-next" aria-label="Next">▶</button>
     </div>
   </div>
+
+  <audio id="bg-music" src="videos/Video1.mp4" loop></audio>
 
   <script>
     (function(){
@@ -148,6 +157,25 @@
           if(e.key === 'Escape') close();
           if(e.key === 'ArrowLeft') showPrev();
           if(e.key === 'ArrowRight') showNext();
+        }
+      });
+    })();
+
+    (function () {
+      var audio = document.getElementById('bg-music');
+      var button = document.getElementById('music-toggle');
+      if (!audio || !button) return;
+
+      button.addEventListener('click', function () {
+        if (audio.paused) {
+          audio.play().then(function () {
+            button.textContent = 'Pause Music';
+          }).catch(function () {
+            button.textContent = 'Play Music';
+          });
+        } else {
+          audio.pause();
+          button.textContent = 'Play Music';
         }
       });
     })();

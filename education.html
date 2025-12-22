@@ -65,6 +65,24 @@
     .item-date { font-size: 0.85rem; color: #777; }
     .item-subtitle { font-size: 0.9rem; color: #555; }
     .small { font-size: 0.85rem; color: #777; }
+
+    .music-controls {
+      margin-top: 10px;
+    }
+
+    .music-button {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #dde5ff;
+      background: #f0f4ff;
+      color: #0077cc;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .music-button:hover {
+      background: #e2ebff;
+    }
   </style>
 </head>
 <body>
@@ -79,6 +97,9 @@
           <li><a href="index.html">Home</a></li>
         </ul>
       </nav>
+      <div class="music-controls">
+        <button id="music-toggle" class="music-button" type="button">Play Music</button>
+      </div>
     </header>
 
     <section class="section">
@@ -93,5 +114,28 @@
       </div>
     </section>
   </div>
+
+    <audio id="bg-music" src="videos/Video1.mp4" loop></audio>
+
+    <script>
+      (function () {
+        var audio = document.getElementById('bg-music');
+        var button = document.getElementById('music-toggle');
+        if (!audio || !button) return;
+
+        button.addEventListener('click', function () {
+          if (audio.paused) {
+            audio.play().then(function () {
+              button.textContent = 'Pause Music';
+            }).catch(function () {
+              button.textContent = 'Play Music';
+            });
+          } else {
+            audio.pause();
+            button.textContent = 'Play Music';
+          }
+        });
+      })();
+    </script>
 </body>
 </html>
