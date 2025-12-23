@@ -66,6 +66,29 @@
     .item-subtitle { font-size: 0.9rem; color: #555; }
     .item ul { margin: 5px 0 0 18px; font-size: 0.9rem; }
 
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .project-card {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .project-image {
+      width: 100%;
+      height: auto;
+      max-height: 220px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
     .music-controls {
       position: fixed;
       right: 20px;
@@ -107,17 +130,50 @@
 
     <section class="section">
       <div class="section-title">Projects</div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <img src="Photos/DMHOME.png" alt="Project 1 preview" class="project-image" />
+          <div class="item">
+            <div class="item-header">
+              <span>Project One</span>
+              <span class="item-date">2024</span>
+            </div>
+            <div class="item-subtitle">Sample project description with image preview.</div>
+          </div>
+        </article>
 
-      <div class="item">
-        <div class="item-header">
-          <span>Project Name</span>
-          <span class="item-date">Year</span>
-        </div>
-        <div class="item-subtitle">Technologies: HTML, CSS, JavaScript</div>
-        <ul>
-          <li>Short description of what the project does and your role.</li>
-          <li>Highlight any interesting technical or business result.</li>
-        </ul>
+        <article class="project-card">
+          <img src="Photos/photo2.jpg" alt="Project 2 preview" class="project-image" />
+          <div class="item">
+            <div class="item-header">
+              <span>Project Two</span>
+              <span class="item-date">2024</span>
+            </div>
+            <div class="item-subtitle">Another project showcased with a screenshot.</div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="Photos/photo3.jpg" alt="Project 3 preview" class="project-image" />
+          <div class="item">
+            <div class="item-header">
+              <span>Project Three</span>
+              <span class="item-date">2023</span>
+            </div>
+            <div class="item-subtitle">Highlighting a different type of work.</div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="Photos/photo4.jpg" alt="Project 4 preview" class="project-image" />
+          <div class="item">
+            <div class="item-header">
+              <span>Project Four</span>
+              <span class="item-date">2023</span>
+            </div>
+            <div class="item-subtitle">Fourth example project in the gallery.</div>
+          </div>
+        </article>
       </div>
     </section>
   </div>
