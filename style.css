@@ -7,3 +7,24 @@ body {
   max-width: 1440px;
   margin: auto;
 }
+#game-content {
+    position: sticky;
+    top: 70px;
+    overflow-y: auto;
+}
+
+#game-content api-sports-widget {
+    max-height: calc(100vh - 100px);
+}
+
+#standings-content api-sports-widget,
+#team-content api-sports-widget {
+    margin-bottom: 1rem;
+    max-height: 55vh;
+}
+
+#leagues-list {
+    position: sticky;
+    top: 70px;
+    overflow-y: auto;
+}
